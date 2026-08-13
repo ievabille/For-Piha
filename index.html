@@ -250,33 +250,21 @@
     </div>
 
 
-    <div class="task">
-      <input
-        type="checkbox"
-        id="task2"
-        onclick="showPopup('Did you really?')"
-      >
-      <label for="task2">Compliment Ieva</label>
-    </div>
+  <input type="checkbox" id="task1"
+onclick="showPopup('Did you really see me?'); checkAllTasks()">
+<label for="task1">See Ieva</label><br>
 
+<input type="checkbox" id="task2"
+onclick="showPopup('Did you really?'); checkAllTasks()">
+<label for="task2">Compliment Ieva</label><br>
 
-    <div class="task">
-      <input
-        type="checkbox"
-        id="task3"
-        onclick="showPopup('Did you really?')"
-      >
-      <label for="task3">Get food (with/for Ieva)</label>
-    </div>
+<input type="checkbox" id="task3"
+onclick="showPopup('Did you really?'); checkAllTasks()">
+<label for="task3">Get food (with/for Ieva)</label><br>
 
-
-    <div class="task">
-      <input
-        type="checkbox"
-        id="task4"
-        onclick="showPopup('Did you really?')"
-      >
-      <label for="task4">Cuddle Ieva</label>
+<input type="checkbox" id="task4"
+onclick="showPopup('Did you really?'); checkAllTasks()">
+<label for="task4">Cuddle Ieva</label><br>
     </div>
 
   </div>
@@ -342,6 +330,22 @@
     }
 
   </script>
+<div class="popup" id="finalPopup">
+  <div class="popup-content">
+    <h2>❤️ Thank you!</h2>
+    <p>Thank you baby &lt;3</p>
+  </div>
+</div>
+  function checkAllTasks() {
+  const tasks = document.querySelectorAll('input[type="checkbox"]');
 
+  const allChecked = [...tasks].every(task => task.checked);
+
+  if (allChecked) {
+    setTimeout(function() {
+      document.getElementById("finalPopup").style.display = "flex";
+    }, 500);
+  }
+}
 </body>
 </html>
