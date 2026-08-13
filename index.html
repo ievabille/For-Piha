@@ -240,47 +240,65 @@
     </p>
 
 
- <div class="task">
+    <!-- TASK 1 -->
+    <div class="task">
       <input
         type="checkbox"
         id="task1"
-       onclick="showPopup('Did you really see me?'); checkAllTasks()">
+        onclick="showPopup('Did you really see me?'); checkAllTasks()"
       >
-      <label for="task1">See Ieva</label>
+
+      <label for="task1">
+        See Ieva
+      </label>
     </div>
 
 
+    <!-- TASK 2 -->
     <div class="task">
       <input
         type="checkbox"
         id="task2"
-       onclick="showPopup('Did you really?'); checkAllTasks()">
+        onclick="showPopup('Did you really?'); checkAllTasks()"
       >
-      <label for="task2">Compliment Ieva</label>
+
+      <label for="task2">
+        Compliment Ieva
+      </label>
     </div>
 
 
+    <!-- TASK 3 -->
     <div class="task">
       <input
         type="checkbox"
         id="task3"
-       onclick="showPopup('Did you really?'); checkAllTasks()">
+        onclick="showPopup('Did you really?'); checkAllTasks()"
       >
-      <label for="task3">Get food (with/for Ieva)</label>
+
+      <label for="task3">
+        Get food (with/for Ieva)
+      </label>
     </div>
 
 
+    <!-- TASK 4 -->
     <div class="task">
       <input
         type="checkbox"
         id="task4"
-        onclick="showPopup('Did you really?'); checkAllTasks()">
+        onclick="showPopup('Did you really?'); checkAllTasks()"
       >
-      <label for="task4">Cuddle Ieva</label>
+
+      <label for="task4">
+        Cuddle Ieva
+      </label>
     </div>
 
+  </div>
 
-  <!-- POPUP -->
+
+  <!-- NORMAL POPUP -->
 
   <div class="popup" id="popup">
 
@@ -313,15 +331,39 @@
   </div>
 
 
+  <!-- FINAL POPUP -->
+
+  <div class="popup" id="finalPopup">
+
+    <div class="popup-content">
+
+      <h2> Thank you!</h2>
+
+      <p>
+        Thank you baby &lt;3
+      </p>
+
+    </div>
+
+  </div>
+
+
   <script>
 
+    /* Opens the normal popup */
+
     function showPopup(message) {
+
       document.getElementById("popupText").textContent = message;
+
       document.getElementById("popup").style.display = "flex";
     }
 
 
+    /* YES button */
+
     function showThankYou() {
+
       document.getElementById("popupText").textContent =
         "Thank you baby <3";
 
@@ -329,33 +371,49 @@
     }
 
 
+    /* NO button */
+
     function showDoIt() {
+
       document.getElementById("popupText").textContent =
         "Do it then :(";
     }
 
 
+    /* Closes normal popup */
+
     function closePopup() {
+
       document.getElementById("popup").style.display = "none";
     }
 
+
+    /* Checks if all four tasks are completed */
+
+    function checkAllTasks() {
+
+      const tasks = document.querySelectorAll(
+        'input[type="checkbox"]'
+      );
+
+      const allChecked =
+        [...tasks].every(task => task.checked);
+
+
+      if (allChecked) {
+
+        setTimeout(function() {
+
+          document.getElementById("finalPopup").style.display = "flex";
+
+        }, 500);
+
+      }
+
+    }
+
   </script>
-<div class="popup" id="finalPopup">
-  <div class="popup-content">
-    <h2>❤️ Thank you!</h2>
-    <p>Thank you baby &lt;3</p>
-  </div>
-</div>
-  function checkAllTasks() {
-  const tasks = document.querySelectorAll('input[type="checkbox"]');
 
-  const allChecked = [...tasks].every(task => task.checked);
-
-  if (allChecked) {
-    setTimeout(function() {
-      document.getElementById("finalPopup").style.display = "flex";
-    }, 500);
-  }
-}
 </body>
+
 </html>
